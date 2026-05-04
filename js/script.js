@@ -10,7 +10,7 @@ const SUPABASE_KEY  = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFz
 // Tanggal ulang tahun
 const BIRTHDAY = new Date(2026, 4, 14, 0, 0, 0); // bulan dimulai dari 0, jadi Mei = 4
 // Website bisa dibuka mulai tanggal berapa (13 Mei 23:59)
-const UNLOCK_DATE = new Date(2026, 4, 1, 23, 59, 0);
+const UNLOCK_DATE = new Date(2026, 4, 13, 23, 59, 0);
 
 // ===================== CEK LOCK =====================
 function checkLock() {
