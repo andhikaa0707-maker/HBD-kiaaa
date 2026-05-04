@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, Sayangkuuu!</title>
+  <link rel="icon" href="foto/favicon.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body>
+
+  <!-- CONFETTI -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- SPLASH SCREEN -->
+  <div id="splash">
+    <div class="splash-stars" id="splash-stars"></div>
+    <div class="splash-content">
+      <div class="splash-emoji">
+        <lottie-player src="Birthday cake.json" background="transparent" speed="1"
+          style="width:200px;height:120px;margin:0 auto;" loop autoplay></lottie-player>
+      </div>
+      <h1 class="splash-title">Happy Birthday<br><em>Kiaaaa !</em></h1>
+      <p class="splash-sub">14 Mei 2026 — Hari spesial sayangg <i class="fa-solid fa-heart" style="color:#B8D4FF"></i></p>
+
+      <!-- COUNTDOWN DI SPLASH -->
+      <div class="splash-countdown" id="splash-countdown">
+        <div class="splash-countdown-label">
+          <i class="fa-solid fa-hourglass-half" style="color:#FFD700"></i> Countdown ke 14 Mei 2026
+        </div>
+        <div class="splash-countdown-display">
+          <div class="splash-cd-item"><div class="splash-cd-num" id="scd-days">00</div><div class="splash-cd-unit">Hari</div></div>
+          <div class="splash-cd-item"><div class="splash-cd-num" id="scd-hours">00</div><div class="splash-cd-unit">Jam</div></div>
+          <div class="splash-cd-item"><div class="splash-cd-num" id="scd-mins">00</div><div class="splash-cd-unit">Menit</div></div>
+          <div class="splash-cd-item"><div class="splash-cd-num" id="scd-secs">00</div><div class="splash-cd-unit">Detik</div></div>
+        </div>
+      </div>
+
+      <div id="locked-msg" style="display:none;">
+        <div class="locked-box">
+          <i class="fa-solid fa-lock" style="color:#FFD700"></i> Kejutannya baru bisa dibuka dihari<br>
+          <strong>13 Mei 2026 pukul 23:59</strong><br>
+          Sabar ya sayangkuuu!
+        </div>
+      </div>
+
+      <button class="splash-btn" id="splash-btn" onclick="startCelebration()">
+        <i class="fa-solid fa-gift"></i> Buka Kejutan!
+      </button>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bubbles" id="bubbles"></div>
+    <div class="hero-tag">
+      <i class="fa-solid fa-bahai" style="color:#fffcb3"></i> Selamat Ulang Tahun
+      <i class="fa-solid fa-bahai" style="color:#fffcb3"></i>
+    </div>
+    <h1 class="hero-title">Happy Birthday,<br><em>kiaaaa!</em></h1>
+    <div class="hero-cake">
+      <lottie-player src="Birthday cake.json" background="transparent" speed="1"
+        style="width:220px;height:220px;margin:0 auto;" loop autoplay></lottie-player>
+    </div>
+    <p class="hero-desc">Semoga hadiah ini bisa membuat hari spesial sayang lebih senangg, love youuu
+      <i class="fa-solid fa-heart" style="color:#6495ED"></i>
+    </p>
+  </section>
+
+  <!-- DOA UNTUK KIA -->
+  <section class="doa-section" id="doa">
+    <div class="doa-inner">
+
+      <!-- KIRI: Teks doa -->
+      <div class="doa-text">
+        <div class="section-label">
+          <i class="fa-solid fa-hands-praying" style="color:#FFD700"></i> Untuk Kia
+        </div>
+        <h2 class="section-title">Doa & Harapan</h2>
+        <div class="doa-box">
+          <div class="doa-box-header">
+            <i class="fa-solid fa-star" style="color:#FFD700"></i>
+            <i class="fa-solid fa-heart" style="color:#FF6B9D"></i>
+            <i class="fa-solid fa-star" style="color:#FFD700"></i>
+          </div>
+          <div class="doa-box-content">
+            <!-- ✏️ EDIT DOA KAMU DI SINI — hapus contoh di bawah dan tulis sendiri -->
+            <p>Semoga dengan bertambahnyaa umur kiaa ini bisa menjadikan diri kia lebih baikk lagii, dipanjangkan umurnyaa dan lebih
+              dewasa dalam menghadapi cobaan, semogaa kedepannya kiaa bisa lebihh baikk lebih sayang sama keluarga
+              dan lebih kuat jalanin harinyaa. Dan juga selalu walau disituasi susah, semoga dimudahkan segala urusan kia.
+            </p>
+          </div>
+          <div class="doa-box-footer">
+            <i class="fa-solid fa-infinity" style="color:#DDA0DD"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- KANAN: Carousel foto portrait -->
+      <div class="doa-carousel-wrap">
+        <div class="carousel-container">
+          <div class="carousel-track" id="doa-track">
+            <!-- Ganti src foto kamu di sini -->
+            <div class="carousel-slide active">
+              <div class="carousel-img-wrap">
+                <img src="foto/1d.jpg" alt="Foto 1" onerror="this.parentElement.innerHTML='<div class=carousel-placeholder><i class=fa-solid fa-image style=color:#6495ED;font-size:3rem></i></div>'">
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <div class="carousel-img-wrap">
+                <img src="foto/2d.jpg" alt="Foto 2" onerror="this.parentElement.innerHTML='<div class=carousel-placeholder><i class=fa-solid fa-image style=color:#FFB7C5;font-size:3rem></i></div>'">
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <div class="carousel-img-wrap">
+                <img src="foto/3d.jpg" alt="Foto 3" onerror="this.parentElement.innerHTML='<div class=carousel-placeholder><i class=fa-solid fa-image style=color:#DDA0DD;font-size:3rem></i></div>'">
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <div class="carousel-img-wrap">
+                <img src="foto/4d.jpg" alt="Foto 4" onerror="this.parentElement.innerHTML='<div class=carousel-placeholder><i class=fa-solid fa-image style=color:#98FB98;font-size:3rem></i></div>'">
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <div class="carousel-img-wrap">
+                <img src="foto/5d.jpg" alt="Foto 5" onerror="this.parentElement.innerHTML='<div class=carousel-placeholder><i class=fa-solid fa-image style=color:#FFD700;font-size:3rem></i></div>'">
+              </div>
+            </div>
+          </div>
+
+          <!-- Tombol navigasi -->
+          <button class="carousel-btn carousel-prev" onclick="prevSlide()">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="carousel-btn carousel-next" onclick="nextSlide()">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+
+          <!-- Dots -->
+          <div class="carousel-dots" id="carousel-dots"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MINI GAME: TIUP LILIN -->
+  <section class="candle-section" id="game">
+    <div class="section-inner">
+      <div class="section-label">
+        <i class="fa-solid fa-fire" style="color:#FF6B4A"></i> Mini Game
+      </div>
+      <h2 class="section-title">Tiup Lilinnya! <i class="fa-solid fa-cake-candles" style="color:#FFD700"></i></h2>
+      <p class="candle-desc">Klik setiap lilin satu per satu untuk mematikannya!</p>
+
+      <div class="candle-game">
+        <div class="cake-wrapper">
+          <!-- Lilin di ATAS kue -->
+          <div class="candles-row" id="candles-row"></div>
+          <!-- Kue -->
+          <div class="cake-base">
+            <div class="cake-top"></div>
+            <div class="cake-mid"></div>
+            <div class="cake-bot"></div>
+          </div>
+        </div>
+        <div class="candle-progress">
+          <span id="candle-count">0</span> / <span id="candle-total">7</span> lilin ditiup
+        </div>
+        <div class="candle-win" id="candle-win" style="display:none;">
+          <i class="fa-solid fa-party-horn" style="color:#FFD700;font-size:2rem"></i>
+          <p>Lilinnya sudah mati semua, ucapkan selamat ulang tahun untuk kiaa dibawahh!</p>
+          <p>terimakasih telah bermain <i class="fa-solid fa-heart" style="color:#FF6B9D"></i></p>
+          <button class="confetti-btn" onclick="launchConfetti()">
+            <i class="fa-solid fa-wand-sparkles"></i> Rayakan!
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3D MODEL -->
+  <section class="model-section" id="karakter">
+    <div class="model-inner">
+      <div class="model-text">
+        <div class="section-label"><i class="fa-solid fa-wand-magic-sparkles" style="color:#fddd5c"></i> Karakter Spesial</div>
+        <h2 class="section-title">Ini kamu, Sayangkuu! <i class="fa-solid fa-heart" style="color:#6495ED"></i></h2>
+        <p>Dika buatkan karakter khusus untuk kiaaa — bisa diputar dan ganti warnanyaaa!</p>
+        <div class="color-controls">
+          <div class="color-group">
+            <div class="color-group-label"><i class="fa-solid fa-person-dress"></i> Dress</div>
+            <div class="color-swatches">
+              <div class="swatch active" style="background:#ffffff" data-part="mat_dress" data-color="#ffffff"></div>
+              <div class="swatch" style="background:#000000" data-part="mat_dress" data-color="#000000"></div>
+              <div class="swatch" style="background:#6495ED" data-part="mat_dress" data-color="#6495ED"></div>
+              <div class="swatch" style="background:#FFB7C5" data-part="mat_dress" data-color="#FFB7C5"></div>
+              <div class="swatch" style="background:#98FB98" data-part="mat_dress" data-color="#98FB98"></div>
+              <div class="swatch" style="background:#FFD700" data-part="mat_dress" data-color="#FFD700"></div>
+              <div class="swatch" style="background:#DDA0DD" data-part="mat_dress" data-color="#DDA0DD"></div>
+            </div>
+          </div>
+          <div class="color-group">
+            <div class="color-group-label"><i class="fa-solid fa-bag-shopping"></i> Tas</div>
+            <div class="color-swatches">
+              <div class="swatch active" style="background:#111111" data-part="mat_bag" data-color="#111111"></div>
+              <div class="swatch" style="background:#6495ED" data-part="mat_bag" data-color="#6495ED"></div>
+              <div class="swatch" style="background:#8B4513" data-part="mat_bag" data-color="#8B4513"></div>
+              <div class="swatch" style="background:#FFB7C5" data-part="mat_bag" data-color="#FFB7C5"></div>
+              <div class="swatch" style="background:#2F4F4F" data-part="mat_bag" data-color="#2F4F4F"></div>
+            </div>
+          </div>
+          <div class="color-group">
+            <div class="color-group-label"><i class="fa-solid fa-socks"></i> Sepatu</div>
+            <div class="color-swatches">
+              <div class="swatch active" style="background:#f5f5f5" data-part="mat_shoes" data-color="#f5f5f5"></div>
+              <div class="swatch" style="background:#6495ED" data-part="mat_shoes" data-color="#6495ED"></div>
+              <div class="swatch" style="background:#111111" data-part="mat_shoes" data-color="#111111"></div>
+              <div class="swatch" style="background:#FFB7C5" data-part="mat_shoes" data-color="#FFB7C5"></div>
+              <div class="swatch" style="background:#DDA0DD" data-part="mat_shoes" data-color="#DDA0DD"></div>
+            </div>
+          </div>
+          <div class="color-group">
+            <div class="color-group-label"><i class="fa-solid fa-scissors"></i> Rambut</div>
+            <div class="color-swatches">
+              <div class="swatch active" style="background:#1a0a00" data-part="mat_hair" data-color="#1a0a00"></div>
+              <div class="swatch" style="background:#4a2c00" data-part="mat_hair" data-color="#4a2c00"></div>
+              <div class="swatch" style="background:#8B4513" data-part="mat_hair" data-color="#8B4513"></div>
+              <div class="swatch" style="background:#FFD700" data-part="mat_hair" data-color="#FFD700"></div>
+              <div class="swatch" style="background:#FF69B4" data-part="mat_hair" data-color="#FF69B4"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="model-right">
+        <div id="model-canvas-wrap">
+          <canvas id="model-canvas"></canvas>
+          <div class="model-loading" id="model-loading">
+            <i class="fa-solid fa-spinner fa-spin" style="color:white"></i> Loading karakter...
+          </div>
+          <div class="model-hint">
+            <i class="fa-solid fa-hand-pointer" style="color:white"></i> Drag untuk putar
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERI -->
+  <section class="section bg-light" id="galeri">
+    <div class="section-inner">
+      <div class="section-label"><i class="fa-solid fa-camera fa-xl"></i> Momen Bersama</div>
+      <h2 class="section-title">Galeri Foto kitaa <i class="fa-solid fa-heart" style="color:#6495ED"></i></h2>
+      <div id="gallery-gate">
+        <div class="password-gate">
+          <div class="gate-icon"><i class="fa-solid fa-lock" style="color:#6495ED"></i></div>
+          <h3>Galeri Pribadi</h3>
+          <p>Masukkan password untuk melihat foto-foto spesial kita</p>
+          <input type="password" class="password-input" id="gallery-password" placeholder="Password...">
+          <button class="password-btn" onclick="unlockGallery()">
+            <i class="fa-solid fa-unlock"></i> Buka
+          </button>
+          <div class="password-error" id="gallery-error">
+            <i class="fa-solid fa-circle-xmark" style="color:#e74c3c"></i> Password salah! Kamu bukan Kia jangan coba bukaa!!
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PESAN RAHASIA -->
+  <section class="section bg-white" id="pesan">
+    <div class="section-inner">
+      <div class="section-label"><i class="fa-solid fa-heart" style="color:#FF6B9D"></i> Dari Aan</div>
+      <h2 class="section-title">Pesan Spesial <i class="fa-solid fa-heart" style="color:#6495ED"></i></h2>
+      <div id="letter-gate">
+        <div class="password-gate">
+          <div class="gate-icon"><i class="fa-solid fa-envelope-heart" style="color:#FF6B9D"></i></div>
+          <h3>Pesan Rahasia</h3>
+          <p>Ada pesan spesial yang menunggu kiaa </p>
+          <input type="password" class="password-input" id="letter-password" placeholder="Password...">
+          <button class="password-btn" onclick="unlockLetter()">
+            <i class="fa-solid fa-envelope-open"></i> Buka Pesan
+          </button>
+          <div class="password-error" id="letter-error">
+            <i class="fa-solid fa-circle-xmark" style="color:#e74c3c"></i> Password salah! Kamu bukan Kia jangan coba bukaa!!
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UCAPAN -->
+  <section class="section bg-light" id="ucapan">
+    <div class="section-inner">
+      <div class="section-label"><i class="fa-solid fa-party-horn" style="color:#FFD700"></i> Dari Semua Orang</div>
+      <h2 class="section-title">Ucapan untuk Kia <i class="fa-solid fa-heart" style="color:#6495ED"></i></h2>
+      <div class="message-form">
+        <input type="text" class="form-input" id="msg-name" placeholder="Nama kamu...">
+        <select class="form-input" id="msg-relation">
+          <option value="">Kamu siapanya?</option>
+          <option value="Temannya Aan">Temann Aan</option>
+          <option value="Temannya Kia">Temann Kia</option>
+        </select>
+        <textarea class="form-textarea" id="msg-text" placeholder="Tulis ucapan untuk Kia..."></textarea>
+        <button class="submit-btn" onclick="submitMessage()">
+          <i class="fa-solid fa-paper-plane"></i> Kirim Ucapan
+        </button>
+      </div>
+      <div class="messages-list" id="messages-list">
+        <p class="empty-msg"><i class="fa-solid fa-spinner fa-spin" style="color:#B8D4FF"></i> Loading ucapan...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Dibuat dengan <i class="fa-solid fa-heart" style="color:#FF6B9D"></i> oleh <strong>Aan</strong> untuk <strong>Kia</strong></p>
+    <p>Happy Birthday, Sayangkuuu Kiaaaaa! <i class="fa-solid fa-cake-candles" style="color:#FFD700"></i> 14 Mei 2026</p>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="js/music.js"></script>
+  <script src="js/model.js"></script>
+  <script src="js/script.js"></script>
+
+</body>
+</html>
